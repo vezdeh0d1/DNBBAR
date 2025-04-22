@@ -20,11 +20,9 @@ export const fetchDrinks = async ({ query }: { query: string }): Promise<Drink[]
     }
 };
 
-export const fetchNews = async ({ query = "" } = {}): Promise<New[]> => {
+export const fetchNews = async (): Promise<New[]> => {
     try {
-        const url = `${API_CONFIG.BASE_URL}/news${query ? `?name=*${query}*` : ''}`;
-
-        const response = await fetch(url);
+        const response = await fetch(`${API_CONFIG.BASE_URL}/news`);
 
         if (!response.ok) {
             throw new Error(`Failed to fetch news: ${response.statusText}`);
@@ -34,6 +32,22 @@ export const fetchNews = async ({ query = "" } = {}): Promise<New[]> => {
         return data;
     } catch (error) {
         console.error("Error fetching news:", error);
+        throw error;
+    }
+};
+
+export const fetchEvents = async (): Promise<Event[]> => {
+    try {
+        const response = await fetch(`${API_CONFIG.BASE_URL}/events`);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch events: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching events:", error);
         throw error;
     }
 };

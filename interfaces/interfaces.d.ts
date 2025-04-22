@@ -13,6 +13,15 @@ interface New {
   imageUrl: string;
 }
 
+interface Event {
+  id: number;
+  name: string;
+  date: number;
+  price: string;
+  text: string;
+  imageUrl: string;
+}
+
 interface Movie {
   id: number;
   title: string;

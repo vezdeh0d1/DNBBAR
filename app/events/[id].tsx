@@ -1,10 +1,9 @@
-import {ActivityIndicator, FlatList, Image, ScrollView, StyleSheet, Text, View} from 'react-native'
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native'
 import React from 'react'
 import {images} from "@/constants/images";
 import {icons} from "@/constants/icons";
-import EventsCard from "@/components/EventsCard";
 
-const Profile = () => {
+const EventDetails = () => {
     return (
         <View className="flex-1 bg-primary">
             <Image
@@ -26,5 +25,5 @@ const Profile = () => {
         </View>
     );
 }
-export default Profile
-const styles = StyleSheet.create({})
+
+export default EventDetails

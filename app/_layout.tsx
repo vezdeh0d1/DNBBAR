@@ -7,13 +7,19 @@ export default function RootLayout() {
         <Stack.Screen
             name="(tabs)"
             options={{
-              headerShown: false,
+                headerShown: false,
             }}
         />
         <Stack.Screen
             name="drinks/[id]"
             options={{
-              headerShown: false,
+                headerShown: false,
+            }}
+        />
+        <Stack.Screen
+            name="events/[id]"
+            options={{
+                headerShown: false,
             }}
         />
       </Stack>

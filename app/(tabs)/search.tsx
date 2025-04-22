@@ -15,13 +15,12 @@ const Search = () => {
         loading: drinksLoading,
         error: drinksError,
         refetch,
-    } = useFetch<Drink[]>(() => fetchDrinks({ query: searchQuery }), false); // autoFetch: false
+    } = useFetch<Drink[]>(() => fetchDrinks({ query: searchQuery }), false);
 
-    // обновлять результат при каждом вводе
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
-            refetch(); // вызывает fetchDrinks({ query })
-        }, 300); // debounce: ждать 300 мс
+            refetch();
+        }, 300);
 
         return () => clearTimeout(delayDebounce);
     }, [searchQuery]);

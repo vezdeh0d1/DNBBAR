@@ -21,4 +21,9 @@ export const images = {
     "Apollo-13": require("../assets/images/news/as13.png"),
     "fritz-cola": require("../assets/images/news/as13.png"),
   },
+  events: {
+    "Sillis": require("../assets/images/events/sillis.png"),
+    "Burskalation": require("../assets/images/events/burskalation.png"),
+    "Sommerfest": require("../assets/images/events/sommerfest.png"),
+  },
 };
