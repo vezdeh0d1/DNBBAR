@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f78df039-4fba-41f5-b609-765bf756be63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/events/[id].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/EventsCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/saved.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/saved.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/search.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/drinks/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/drinks/[id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/images.ts" beforeDir="false" afterPath="$PROJECT_DIR$/constants/images.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/events/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/events/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/EventsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/EventsCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interfaces/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/interfaces.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +40,9 @@
     &quot;accountId&quot;: &quot;00d40ecf-6b26-4369-b530-e6be886f78e5&quot;
   }
 }</component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -113,6 +112,8 @@
       <workItem from="1745237387544" duration="15986000" />
       <workItem from="1745276666690" duration="1184000" />
       <workItem from="1745341825058" duration="9183000" />
+      <workItem from="1746961255927" duration="4926000" />
+      <workItem from="1747425362156" duration="1278000" />
     </task>
     <servers />
   </component>

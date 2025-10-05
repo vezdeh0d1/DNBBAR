@@ -1,50 +1,55 @@
-# Welcome to your Expo app 👋
+# DNBBar
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**DNBBar** is a mobile application built with **React Native (Expo)** for a **student dormitory bar**.  
+The app allows students to view **upcoming events**, **latest news**, and **the list of available drinks** with their **prices and descriptions**.
 
-## Get started
+It’s designed to bring the community closer — helping students stay informed about what’s happening, what drinks are available, and when the next party starts.
 
-1. Install dependencies
+---
+
+## Features
+
+- **News** – Stay updated with announcements and bar activities.
+- **Events** – View upcoming parties and gatherings with detailed info.
+- **Drinks** – Explore the drink menu with images, names, and prices.
+- **Dynamic content** – All data is managed through a Directus backend and loaded dynamically.
+- **Cross-platform** – Built with React Native and Expo, works on both Android and iOS.
+
+---
+
+## Tech Stack
+
+- **Frontend:** React Native (Expo, TypeScript)
+- **Backend:** Directus (headless CMS and REST API)
+- **Styling:** Tailwind CSS / NativeWind
+- **Routing:** Expo Router
+- **State Management:** React Hooks
+- **Platform:** Android & iOS
+
+---
+
+## Screenshots
+
+| Screen             | Description                                  | Image                                        |
+| :----------------- | :------------------------------------------- | :------------------------------------------- |
+| **Loading Screen** | App startup logo screen                      | ![Loading Screen](./screenshots/loading.jpg) |
+| **Drinks Page**    | Displays the list of drinks and their prices | ![Drinks](./screenshots/drinks.jpg)          |
+| **Events Page**    | List of upcoming bar events with images      | ![Events](./screenshots/events.jpg)          |
+| **Event Detail**   | Full event description with pricing and date | ![Event Detail](./screenshots/event.jpg)     |
+| **Add Event**      | Admin interface for adding/editing events    | ![Add Event](./screenshots/add-event.png)    |
+| **News Page**      | Bar news and updates feed                    | ![News](./screenshots/news.jpg)              |
+
+---
+
+## Getting Started
+
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
-
+1. **Start the app**
    ```bash
-    npx expo start
+   npx expo start
    ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
