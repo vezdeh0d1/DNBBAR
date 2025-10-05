@@ -1,53 +1,73 @@
-export const API_CONFIG = {
-    BASE_URL: "https://63623fd2376fab57.mokky.dev",
+const BASE_URL = process.env.EXPO_PUBLIC_DIRECTUS_URL!;
+const TOKEN    = process.env.EXPO_PUBLIC_DIRECTUS_TOKEN!;
+
+const authHeaders = { Authorization: `Bearer ${TOKEN}` };
+
+// строим URL к картинке (UUID из поля image)
+export const assetUrl = (id?: string, width = 800) =>
+  id ? `${BASE_URL}/assets/${id}?width=${width}&quality=80&format=webp` : undefined;
+
+/** ---------- EVENTS ---------- */
+export type EventItem = {
+  id: number;
+  name: string;
+  text?: string;
+  price?: number;
+  date?: string;        // у тебя поле date в events — строка/дата
+  image?: string;       // UUID файла
 };
 
-export const fetchDrinks = async ({ query }: { query: string }): Promise<Drink[]> => {
-    try {
-        const url = `${API_CONFIG.BASE_URL}/drinks${query ? `?name=*${query}*` : ''}`;
+export const fetchEvents = async (): Promise<(EventItem & { imageUrl?: string })[]> => {
+  const url =
+    `${BASE_URL}/items/events` +
+    `?fields=id,name,price,text,date,image,status` +
+    `&filter[status][_neq]=archived` +   // не показывать архивные (как в админке)
+    `&sort[]=-date&limit=50`;
 
-        const response = await fetch(url);
+  const res = await fetch(url, { headers: authHeaders });
+  if (!res.ok) throw new Error(`events: ${res.statusText}`);
+  const { data } = await res.json() as { data: EventItem[] };
 
-        if (!response.ok) {
-            throw new Error(`Failed to fetch drinks: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error fetching drinks:", error);
-        throw error;
-    }
+  return data.map(it => ({ ...it, imageUrl: assetUrl(it.image) }));
 };
 
-export const fetchNews = async (): Promise<New[]> => {
-    try {
-        const response = await fetch(`${API_CONFIG.BASE_URL}/news`);
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch news: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error fetching news:", error);
-        throw error;
-    }
+export const fetchEventDetails = async (id: number) => {
+  const url = `${BASE_URL}/items/events/${id}?fields=id,name,price,text,date,image,status`;
+  const res = await fetch(url, { headers: authHeaders });
+  if (!res.ok) throw new Error(`event ${id}: ${res.statusText}`);
+  const { data } = await res.json() as { data: EventItem };
+  return { ...data, imageUrl: assetUrl(data.image) };
 };
 
-export const fetchEvents = async (): Promise<Event[]> => {
-    try {
-        const response = await fetch(`${API_CONFIG.BASE_URL}/events`);
+/** ---------- DRINKS ---------- */
+export type DrinkItem = { id: number; name: string; price?: number; text?: string; image?: string };
+export const fetchDrinks = async (query = ""): Promise<(DrinkItem & { imageUrl?: string })[]> => {
+  const url =
+    `${BASE_URL}/items/drinks` +
+    `?fields=id,name,price,text,image` +
+    (query ? `&search=${encodeURIComponent(query)}` : "") +
+    `&sort[]=name`;
+  const res = await fetch(url, { headers: authHeaders });
+  if (!res.ok) throw new Error(`drinks: ${res.statusText}`);
+  const { data } = await res.json() as { data: DrinkItem[] };
+  return data.map(it => ({ ...it, imageUrl: assetUrl(it.image) }));
+};
 
-        if (!response.ok) {
-            throw new Error(`Failed to fetch events: ${response.statusText}`);
-        }
+export const fetchDrinksDetails = async (id: number) => {
+  const url = `${BASE_URL}/items/drinks/${id}?fields=id,name,price,text,image`;
+  const res = await fetch(url, { headers: authHeaders });
+  if (!res.ok) throw new Error(`drink ${id}: ${res.statusText}`);
+  const { data } = await res.json() as { data: DrinkItem };
+  return { ...data, imageUrl: assetUrl(data.image) };
+};
 
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error fetching events:", error);
-        throw error;
-    }
+/** ---------- NEWS ---------- */
+export type NewsItem = { id: number; name: string; date: string; text: string; image?: string };
+export const fetchNews = async (): Promise<(NewsItem & { imageUrl?: string })[]> => {
+  const url =
+    `${BASE_URL}/items/news?fields=id,name,date,text,image&sort[]=-date&limit=50`;
+  const res = await fetch(url, { headers: authHeaders });
+  if (!res.ok) throw new Error(`news: ${res.statusText}`);
+  const { data } = await res.json() as { data: NewsItem[] };
+  return data.map(it => ({ ...it, imageUrl: assetUrl(it.image) }));
 };

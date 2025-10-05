@@ -24,7 +24,7 @@ const Index = () => {
         loading: newsLoading,
         error: newsError,
         refetch,
-    } = useFetch(fetchNews); // Загружаем список новостей
+    } = useFetch(fetchNews);
 
     return (
         <View className="flex-1 bg-primary">
